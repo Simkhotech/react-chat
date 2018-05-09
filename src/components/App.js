@@ -5,6 +5,8 @@ import ChatHeader from './ChatHeader';
 import Sidebar from './Sidebar';
 import Chat from './Chat';
 
+import { chats } from '../mock-data';
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -26,7 +28,7 @@ class PermanentDrawer extends React.Component {
     return (
       <div className={classes.appFrame}>
         <ChatHeader />
-        <Sidebar />
+        <Sidebar chats={chats}/>
         <Chat />
       </div>
     );
