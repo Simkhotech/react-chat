@@ -1,19 +1,24 @@
-import React from 'react'
-import { withStyles } from 'material-ui';
-import Drawer from 'material-ui/Drawer';
-import Divider from 'material-ui/Divider';
-import TextField from 'material-ui/TextField';
+import React from "react";
+import { withStyles } from "material-ui";
+import Drawer from "material-ui/Drawer";
+import Divider from "material-ui/Divider";
+import TextField from "material-ui/TextField";
+import BottomNavigation, {BottomNavigationAction} from "material-ui/BottomNavigation";
+import RestoreIcon from "@material-ui/icons/Restore";
+import ExploreIcon from '@material-ui/icons/Explore';
 
-import ChatList from './ChatList';
+import ChatList from "./ChatList";
+import NewChatButton from "./NewChatButton";
 
 const styles = theme => ({
   drawerPaper: {
-    position: 'relative',
-    width: 320,
+    position: "relative",
+    width: 320
   },
   drawerHeader: {
-    padding: '0 24px',
-    minHeight: 64,
+    ...theme.mixins.toolbar,
+    paddingLeft: theme.spacing.unit * 3,
+    paddingRight: theme.spacing.unit * 3
   }
 });
 
@@ -23,21 +28,25 @@ class Sidebar extends React.Component {
 
     return (
       <Drawer
-          variant="permanent"
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-        >
+        variant="permanent"
+        classes={{
+          paper: classes.drawerPaper
+        }}
+      >
         <div className={classes.drawerHeader}>
-            <TextField
+          <TextField
             fullWidth
-            id="margin-normal"
             margin="normal"
             placeholder="Search chats..."
           />
         </div>
         <Divider />
         <ChatList chats={this.props.chats} />
+        <NewChatButton />
+        <BottomNavigation showLabels>
+          <BottomNavigationAction label="My Chats" icon={<RestoreIcon />} />
+          <BottomNavigationAction label="Explore" icon={<ExploreIcon />} />
+        </BottomNavigation>
       </Drawer>
     );
   }

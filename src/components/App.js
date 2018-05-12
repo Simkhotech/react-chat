@@ -5,15 +5,11 @@ import ChatHeader from './ChatHeader';
 import Sidebar from './Sidebar';
 import Chat from './Chat';
 
-import { chats } from '../mock-data';
+import { chats, messages } from "../mock-data";
 
 const styles = theme => ({
-  root: {
-    flexGrow: 1,
-  },
   appFrame: {
     height: '100%',
-    zIndex: 1,
     overflow: 'hidden',
     position: 'relative',
     display: 'flex',
@@ -21,18 +17,16 @@ const styles = theme => ({
   },
 });
 
-class PermanentDrawer extends React.Component {
+class App extends React.Component {
   render() {
     const { classes } = this.props;
 
-    return (
-      <div className={classes.appFrame}>
+    return <div className={classes.appFrame}>
         <ChatHeader />
-        <Sidebar chats={chats}/>
-        <Chat />
-      </div>
-    );
+        <Sidebar chats={chats} />
+        <Chat messages={messages} />
+      </div>;
   }
 }
 
-export default withStyles(styles)(PermanentDrawer);
+export default withStyles(styles)(App);

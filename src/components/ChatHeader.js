@@ -1,5 +1,6 @@
 import React from 'react'
 import { withStyles } from 'material-ui';
+
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
@@ -7,7 +8,8 @@ import Typography from 'material-ui/Typography';
 const styles = theme => ({
   appBar: {
     width: `calc(100% - 320px)`,
-  },
+    position: "fixed"
+  }
 });
 
 class ChatHeader extends React.Component {
@@ -15,16 +17,16 @@ class ChatHeader extends React.Component {
     const { classes } = this.props;
 
     return (
-      <AppBar
-          position="absolute"
-          className={classes.appBar}
-        >
-          <Toolbar>
-            <Typography variant="title" color="inherit" noWrap>
-              //TODO ChatHeader
-            </Typography>
-          </Toolbar>
-        </AppBar>
+      <AppBar className={classes.appBar}>
+        <Toolbar>
+          <Typography 
+            variant="title" 
+            color="inherit" 
+            noWrap>
+            React Chat!
+          </Typography>
+        </Toolbar>
+      </AppBar>
     );
   }
 }

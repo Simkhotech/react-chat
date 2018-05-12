@@ -1,29 +1,30 @@
 import React from 'react'
 import { withStyles } from 'material-ui';
-import Typography from 'material-ui/Typography';
+
+import ChatMessageList from "./ChatMessageList";
+import MessageInput from "./MessageInput";
 
 const styles = theme => ({
-  toolbar: theme.mixins.toolbar,
-  content: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
-  },
+  chatLayout: {
+    display: 'flex',
+
+    height: '100%',
+    overflow: 'hidden',
+    
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: '64px',
+  }
 });
 
 class Chat extends React.Component {
   render() {
-    const { classes } = this.props;
+    const { classes, messages } = this.props;
 
-    return (
-      <div>
-        {/* <div className={classes.toolbar} /> */}
-        <main className={classes.content}>
-          <div className={classes.toolbar} />
-          <Typography>{'You think water moves fast? You should see ice.'}</Typography>
-        </main>
-      </div>
-    );
+    return <main className={classes.chatLayout}>
+        <ChatMessageList messages={messages} />
+        <MessageInput />
+      </main>;
   }
 }
 
