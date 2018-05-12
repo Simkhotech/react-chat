@@ -12,7 +12,7 @@ import NewChatButton from "./NewChatButton";
 
 const styles = theme => ({
   drawerPaper: {
-    position: "relative",
+    position: "fixed",
     width: 320
   },
   drawerHeader: {

@@ -13,7 +13,10 @@ const styles = theme => ({
     
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: '64px',
+    paddingTop: 64,
+
+    width: `calc(100% - 320px)`,
+    paddingLeft: 320,
   }
 });
 
