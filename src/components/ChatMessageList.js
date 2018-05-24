@@ -14,20 +14,21 @@ const styles = theme => ({
 });
 
 class ChatMessageList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.messagesWrapper = React.createRef();
+  }
   componentDidMount() {
     this.scrollDownHistory();
   }
   
   componentDidUpdate() {
-    console.log("componentDidUpdate");
-    
     this.scrollDownHistory();
   }
 
+  // TODO Fix it!!!
   scrollDownHistory() {
-    console.log("scrollDownHistory");
-    
-    const messagesWrapper = this.refs.messagesWrapper;
+    const messagesWrapper = this.messagesWrapper.current;
 
     if (messagesWrapper) {
       messagesWrapper.scrollTop = messagesWrapper.scrollHeight;
@@ -38,7 +39,7 @@ class ChatMessageList extends React.Component {
     const { classes, messages } = this.props;
 
     return (
-      <div className={classes.messagesWrapper} ref="messagesWrapper"> 
+      <div className={classes.messagesWrapper} ref={this.messagesWrapper}> 
         {messages && messages.map((message, index) => (
           <ChatMessage key={index} message={message}/>
         ))}

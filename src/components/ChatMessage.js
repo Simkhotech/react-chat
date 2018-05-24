@@ -33,8 +33,6 @@ class ChatMessage extends React.Component {
     const { classes, message } = this.props;
     const isMessageFromMe = message.sender === "me";
 
-    console.log('message', message);
-
     return <div className={classnames(classes.messageWrapper, isMessageFromMe && classes.messageWrappperFromMe)}>
       {!isMessageFromMe && <AppAvatar text={message.sender} />}
         <Paper className={classnames(classes.message, isMessageFromMe && classes.messageFromMe)}>
