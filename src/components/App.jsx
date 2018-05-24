@@ -21,11 +21,13 @@ class App extends React.Component {
   render() {
     const { classes } = this.props;
 
-    return <div className={classes.appFrame}>
+    return (
+      <div className={classes.appFrame}>
         <ChatHeader />
         <Sidebar chats={chats} />
         <Chat messages={messages} />
-      </div>;
+      </div>
+    );
   }
 }
 

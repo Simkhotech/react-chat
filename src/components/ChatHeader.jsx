@@ -8,7 +8,7 @@ import Typography from 'material-ui/Typography';
 const styles = theme => ({
   appBar: {
     width: `calc(100% - 320px)`,
-    position: "fixed"
+    position: 'fixed'
   }
 });
 
@@ -20,8 +20,8 @@ class ChatHeader extends React.Component {
       <AppBar className={classes.appBar}>
         <Toolbar>
           <Typography 
-            variant="title" 
-            color="inherit" 
+            variant='title' 
+            color='inherit' 
             noWrap>
             React Chat!
           </Typography>

@@ -1,8 +1,8 @@
 import React from 'react'
 import { withStyles } from 'material-ui';
 
-import ChatMessageList from "./ChatMessageList";
-import MessageInput from "./MessageInput";
+import ChatMessageList from './ChatMessageList';
+import MessageInput from './MessageInput';
 
 const styles = theme => ({
   chatLayout: {

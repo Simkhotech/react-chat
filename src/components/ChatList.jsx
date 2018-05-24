@@ -2,7 +2,7 @@ import React from 'react'
 import { withStyles } from 'material-ui';
 import List from 'material-ui/List';
 
-import ChatListItem from "./ChatListItem";
+import ChatListItem from './ChatListItem';
 
 const styles = theme => ({
   chatList: {

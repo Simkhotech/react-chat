@@ -1,18 +1,18 @@
-import React from "react";
-import { withStyles } from "material-ui";
-import Drawer from "material-ui/Drawer";
-import Divider from "material-ui/Divider";
-import TextField from "material-ui/TextField";
-import BottomNavigation, {BottomNavigationAction} from "material-ui/BottomNavigation";
-import RestoreIcon from "@material-ui/icons/Restore";
+import React from 'react';
+import { withStyles } from 'material-ui';
+import Drawer from 'material-ui/Drawer';
+import Divider from 'material-ui/Divider';
+import TextField from 'material-ui/TextField';
+import BottomNavigation, { BottomNavigationAction } from 'material-ui/BottomNavigation';
+import RestoreIcon from '@material-ui/icons/Restore';
 import ExploreIcon from '@material-ui/icons/Explore';
 
-import ChatList from "./ChatList";
-import NewChatButton from "./NewChatButton";
+import ChatList from './ChatList';
+import NewChatButton from './NewChatButton';
 
 const styles = theme => ({
   drawerPaper: {
-    position: "fixed",
+    position: 'fixed',
     width: 320
   },
   drawerHeader: {
@@ -28,7 +28,7 @@ class Sidebar extends React.Component {
 
     return (
       <Drawer
-        variant="permanent"
+        variant='permanent'
         classes={{
           paper: classes.drawerPaper
         }}
@@ -36,16 +36,16 @@ class Sidebar extends React.Component {
         <div className={classes.drawerHeader}>
           <TextField
             fullWidth
-            margin="normal"
-            placeholder="Search chats..."
+            margin='normal'
+            placeholder='Search chats...'
           />
         </div>
         <Divider />
         <ChatList chats={this.props.chats} />
         <NewChatButton />
         <BottomNavigation showLabels>
-          <BottomNavigationAction label="My Chats" icon={<RestoreIcon />} />
-          <BottomNavigationAction label="Explore" icon={<ExploreIcon />} />
+          <BottomNavigationAction label='My Chats' icon={<RestoreIcon />} />
+          <BottomNavigationAction label='Explore' icon={<ExploreIcon />} />
         </BottomNavigation>
       </Drawer>
     );

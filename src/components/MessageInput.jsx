@@ -1,12 +1,12 @@
-import React from "react";
-import { withStyles } from "material-ui";
-import Paper from "material-ui/Paper";
-import Input from "material-ui/Input";
+import React from 'react';
+import { withStyles } from 'material-ui';
+import Paper from 'material-ui/Paper';
+import Input from 'material-ui/Input';
 
 const styles = theme => ({
   messageInputWrapper: {
-    position: "fixed",
-    left: "auto",
+    position: 'fixed',
+    left: 'auto',
     right: 0,
     bottom: 0,
     width: `calc(100% - 368px)`,
@@ -24,7 +24,7 @@ class MessageInput extends React.Component {
     return (
       <div className={classes.messageInputWrapper}>
         <Paper className={classes.messageInput} elevation={6}>
-          <Input fullWidth placeholder="Type your message…" />
+          <Input fullWidth placeholder='Type your message…' />
         </Paper>
       </div>
     );
