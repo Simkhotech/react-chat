@@ -18,7 +18,7 @@ import {
   red,
   teal,
   yellow,
-} from 'material-ui/colors/blueGrey';
+} from 'material-ui/colors';
 
 const colors = [
   amber, blue, blueGrey, brown, cyan,
