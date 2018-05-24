@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import classnames from 'classnames';
 import { withStyles } from 'material-ui';
 import Paper from 'material-ui/Paper';
@@ -24,7 +24,7 @@ const styles = theme => ({
   },
   messageFromMe: {
     marginRight: theme.spacing.unit * 2,
-    backgroundColor: '#e6dcff'
+    backgroundColor: '#e6dcff',
   },
 });
 

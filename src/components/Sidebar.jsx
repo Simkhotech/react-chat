@@ -13,7 +13,7 @@ import NewChatButton from './NewChatButton';
 const styles = theme => ({
   drawerPaper: {
     position: 'fixed',
-    width: 320
+    width: 320,
   },
   drawerHeader: {
     ...theme.mixins.toolbar,
