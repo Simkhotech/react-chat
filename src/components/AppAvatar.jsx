@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "material-ui/Avatar";
+import MUAvatar from "material-ui/Avatar";
 
 export default class AppAvatar extends React.Component {
   getInitials(text, count) {
@@ -15,6 +15,6 @@ export default class AppAvatar extends React.Component {
   render() {
     const { text } = this.props;
 
-    return <Avatar>{this.getInitials(text)}</Avatar>;
+    return <MUAvatar>{this.getInitials(text)}</MUAvatar>;
   }
 }

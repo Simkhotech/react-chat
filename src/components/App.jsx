@@ -5,7 +5,7 @@ import ChatHeader from './ChatHeader';
 import Sidebar from './Sidebar';
 import Chat from './Chat';
 
-import { chats, messages } from "../mock-data";
+import { chats, messages } from '../mock-data';
 
 const styles = theme => ({
   appFrame: {
