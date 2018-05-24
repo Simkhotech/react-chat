@@ -1,3 +1,8 @@
 module.exports = {
-  extends: "react-app"
+  extends: "react-app",
+  extends: "airbnb",
+  env: {
+    browser: true,
+  }
+
 };
