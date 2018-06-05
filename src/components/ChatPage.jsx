@@ -1,15 +1,20 @@
 import React from 'react';
+
 import { withStyles } from 'material-ui';
+
+import ChatHeader from './ChatHeader';
+import Sidebar from './Sidebar';
+import Chat from './Chat';
 
 
 const styles = theme => ({
-    appFrame: {
+  appFrame: {
     height: '100%',
     overflow: 'hidden',
     position: 'relative',
     display: 'flex',
     width: '100%',
-    },
+  },
 });
 
 class App extends React.Component {
@@ -19,8 +24,8 @@ class App extends React.Component {
     return (
       <div className={classes.appFrame}>
         <ChatHeader />
-        {/* <Sidebar chats={chats} /> */}
-        {/* <Chat messages={messages} /> */}
+        <Sidebar chats />
+        <Chat messages />
       </div>
     );
   }

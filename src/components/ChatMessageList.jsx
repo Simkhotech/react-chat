@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { withStyles } from 'material-ui';
 
 import ChatMessage from './ChatMessage';
@@ -18,10 +20,11 @@ class ChatMessageList extends React.Component {
     super(props);
     this.messagesWrapper = React.createRef();
   }
+
   componentDidMount() {
     this.scrollDownHistory();
   }
-  
+
   componentDidUpdate() {
     this.scrollDownHistory();
   }
@@ -39,13 +42,18 @@ class ChatMessageList extends React.Component {
     const { classes, messages } = this.props;
 
     return (
-      <div className={classes.messagesWrapper} ref={this.messagesWrapper}> 
+      <div className={classes.messagesWrapper} ref={this.messagesWrapper}>
         {messages && messages.map((message, index) => (
-          <ChatMessage key={index} message={message}/>
+          <ChatMessage key={Symbol(index)} message />
         ))}
       </div>
     );
   }
 }
+
+ChatMessageList.propTypes = {
+  classes: PropTypes.shape({ messagesWrapper: {} }).isRequired,
+  messages: PropTypes.shape([]).isRequired,
+};
 
 export default withStyles(styles)(ChatMessageList);

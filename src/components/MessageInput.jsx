@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { withStyles } from 'material-ui';
 import Paper from 'material-ui/Paper';
 import Input from 'material-ui/Input';
@@ -9,12 +11,12 @@ const styles = theme => ({
     left: 'auto',
     right: 0,
     bottom: 0,
-    width: `calc(100% - 368px)`,
-    padding: theme.spacing.unit * 3
+    width: 'calc(100% - 368px)',
+    padding: theme.spacing.unit * 3,
   },
   messageInput: {
-    padding: theme.spacing.unit * 2
-  }
+    padding: theme.spacing.unit * 2,
+  },
 });
 
 class MessageInput extends React.Component {
@@ -30,5 +32,9 @@ class MessageInput extends React.Component {
     );
   }
 }
+
+MessageInput.propTypes = {
+  classes: PropTypes.shape({ messageInputWrapper: {}, messageInput: {} }).isRequired,
+};
 
 export default withStyles(styles)(MessageInput);

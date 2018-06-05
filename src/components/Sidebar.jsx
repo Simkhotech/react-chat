@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { withStyles } from 'material-ui';
 import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
@@ -18,7 +20,7 @@ const styles = theme => ({
   drawerHeader: {
     ...theme.mixins.toolbar,
     paddingLeft: theme.spacing.unit * 3,
-    paddingRight: theme.spacing.unit * 3
+    paddingRight: theme.spacing.unit * 3,
   }
 });
 
@@ -51,5 +53,9 @@ class Sidebar extends React.Component {
     );
   }
 }
+
+Sidebar.propTypes = {
+  classes: PropTypes.shape({ drawerPaper: {}, drawerHeader: {} }).isRequired,
+};
 
 export default withStyles(styles)(Sidebar);

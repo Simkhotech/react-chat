@@ -1,5 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
+
 import { withStyles } from 'material-ui';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
@@ -33,15 +35,27 @@ class ChatMessage extends React.Component {
     const { classes, message } = this.props;
     const isMessageFromMe = message.sender === 'me';
 
-    return <div className={classnames(classes.messageWrapper, isMessageFromMe && classes.messageWrappperFromMe)}>
-      {!isMessageFromMe && <AppAvatar text={message.sender} />}
+    return (
+      <div className={classnames(classes.messageWrapper, isMessageFromMe && classes.messageWrappperFromMe)}>
+        {!isMessageFromMe && <AppAvatar text={message.sender} />}
         <Paper className={classnames(classes.message, isMessageFromMe && classes.messageFromMe)}>
           <Typography variant='caption'>{message.sender}</Typography>
           <Typography variant='body1'>{message.content}</Typography>
         </Paper>
-      {isMessageFromMe && <AppAvatar text={message.sender} />}
-      </div>;
+        {isMessageFromMe && <AppAvatar text={message.sender} />}
+      </div>
+    );
   }
 }
+
+ChatMessage.propTypes = {
+  classes: PropTypes.shape({
+    messageWrapper: {},
+    messageWrappperFromMe: {},
+    message: {},
+    messageFromMe: {},
+  }).isRequired,
+  // message: PropTypes.string.isRequired,
+};
 
 export default withStyles(styles)(ChatMessage);
