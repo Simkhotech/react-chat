@@ -44,7 +44,7 @@ class ChatMessageList extends React.Component {
     return (
       <div className={classes.messagesWrapper} ref={this.messagesWrapper}>
         {messages && messages.map((message, index) => (
-          <ChatMessage key={Symbol(index)} message />
+          <ChatMessage key={Symbol(index).toString} message={message} />
         ))}
       </div>
     );

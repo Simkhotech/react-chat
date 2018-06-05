@@ -26,7 +26,7 @@ const styles = theme => ({
 
 class Sidebar extends React.Component {
   render() {
-    const { classes } = this.props;
+    const { classes, chats } = this.props;
 
     return (
       <Drawer
@@ -43,7 +43,7 @@ class Sidebar extends React.Component {
           />
         </div>
         <Divider />
-        <ChatList chats={this.props.chats} />
+        <ChatList chats={chats} />
         <NewChatButton />
         <BottomNavigation showLabels>
           <BottomNavigationAction label='My Chats' icon={<RestoreIcon />} />
@@ -56,6 +56,7 @@ class Sidebar extends React.Component {
 
 Sidebar.propTypes = {
   classes: PropTypes.shape({ drawerPaper: {}, drawerHeader: {} }).isRequired,
+  // chats:
 };
 
 export default withStyles(styles)(Sidebar);

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import MUAvatar from 'material-ui/Avatar';
 
 export default class AppAvatar extends React.Component {
-  static getInitials(text) {
+  getInitials(text) {
     const words = text.split(/[\s.,;\-_]/);
     const ret =
       words.reduce((initials, word) =>

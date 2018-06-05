@@ -6,6 +6,8 @@ import ChatHeader from './ChatHeader';
 import Sidebar from './Sidebar';
 import Chat from './Chat';
 
+import { chats, messages } from '../mock-data.json';
+
 
 const styles = theme => ({
   appFrame: {
@@ -20,12 +22,12 @@ const styles = theme => ({
 class App extends React.Component {
   render() {
     const { classes } = this.props;
-
+    
     return (
       <div className={classes.appFrame}>
         <ChatHeader />
-        <Sidebar chats />
-        <Chat messages />
+        <Sidebar chats={chats} />
+        <Chat messages={messages} />
       </div>
     );
   }
