@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { withStyles } from 'material-ui/styles';
 import Button from 'material-ui/Button';
@@ -25,9 +24,5 @@ class NewChatButton extends React.Component {
     );
   }
 }
-
-NewChatButton.propTypes = {
-  classes: PropTypes.shape({ newChatButton: {} }).isRequired,
-};
 
 export default withStyles(styles)(NewChatButton);

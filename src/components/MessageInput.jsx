@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { withStyles } from 'material-ui';
 import Paper from 'material-ui/Paper';
@@ -32,9 +31,5 @@ class MessageInput extends React.Component {
     );
   }
 }
-
-MessageInput.propTypes = {
-  classes: PropTypes.shape({ messageInputWrapper: {}, messageInput: {} }).isRequired,
-};
 
 export default withStyles(styles)(MessageInput);

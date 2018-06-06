@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { withStyles } from 'material-ui';
 import List from 'material-ui/List';
@@ -26,10 +25,5 @@ class ChatList extends React.Component {
     );
   }
 }
-
-ChatList.propTypes = {
-  classes: PropTypes.shape({ chatList: {} }).isRequired,
-  // chats: PropTypes.shape({ chatLayout: {} }).isRequired,
-};
 
 export default withStyles(styles)(ChatList);

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { withStyles } from 'material-ui';
 import AppBar from 'material-ui/AppBar';
@@ -31,10 +30,5 @@ class ChatHeader extends React.Component {
     );
   }
 }
-
-ChatHeader.propTypes = {
-  classes: PropTypes.shape({ appBar: {} }).isRequired,
-};
-
 
 export default withStyles(styles)(ChatHeader);

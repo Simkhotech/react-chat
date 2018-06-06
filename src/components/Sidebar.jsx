@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { withStyles } from 'material-ui';
 import Drawer from 'material-ui/Drawer';
@@ -53,10 +52,5 @@ class Sidebar extends React.Component {
     );
   }
 }
-
-Sidebar.propTypes = {
-  classes: PropTypes.shape({ drawerPaper: {}, drawerHeader: {} }).isRequired,
-  // chats:
-};
 
 export default withStyles(styles)(Sidebar);

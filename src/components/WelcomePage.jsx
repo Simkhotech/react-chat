@@ -85,7 +85,6 @@ class WelcomePage extends React.Component {
 }
 
 WelcomePage.propTypes = {
-  classes: PropTypes.shape({ paper: {}, tabContent: {} }).isRequired,
   onSignup: PropTypes.func.isRequired,
   onLogin: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,

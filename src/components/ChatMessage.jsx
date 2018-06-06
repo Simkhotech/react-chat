@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 import { withStyles } from 'material-ui';
@@ -47,15 +46,5 @@ class ChatMessage extends React.Component {
     );
   }
 }
-
-ChatMessage.propTypes = {
-  classes: PropTypes.shape({
-    messageWrapper: {},
-    messageWrappperFromMe: {},
-    message: {},
-    messageFromMe: {},
-  }).isRequired,
-  // message: PropTypes.string.isRequired,
-};
 
 export default withStyles(styles)(ChatMessage);

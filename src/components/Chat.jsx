@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { withStyles } from 'material-ui';
 
@@ -34,11 +33,5 @@ class Chat extends React.Component {
     );
   }
 }
-
-Chat.propTypes = {
-  classes: PropTypes.shape({ chatLayout: {} }).isRequired,
-  messages: PropTypes.string.isRequired,
-};
-
 
 export default withStyles(styles)(Chat);
