@@ -1,4 +1,5 @@
 import * as actionTypes from '../constants';
+import callApi from '../utils/callApi';
 
 export function onSignup(username, password) {
   return (dispatch) => {
@@ -6,25 +7,15 @@ export function onSignup(username, password) {
       type: actionTypes.SIGNUP_REQUEST,
     });
 
-    return fetch('http://localhost:8000/v1/signup', {
-      method: 'POST',
-      body: JSON.stringify({
+    return callApi({
+      endpoint: '/signup',
+      token: undefined,
+      options: { method: 'POST' },
+      payload: {
         username,
         password,
-      }),
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
+      }
     })
-      .then(response => response.json())
-      .then((json) => {
-        if (json.success) {
-          return json;
-        }
-
-        throw new Error(json.message);
-      })
       .then((json) => {
         if (!json.token) {
           throw new Error('Token has not been provided!');
@@ -51,25 +42,15 @@ export function onLogin(username, password) {
       type: actionTypes.LOGIN_REQUEST,
     });
 
-    return fetch('http://localhost:8000/v1/login', {
-      method: 'POST',
-      body: JSON.stringify({
+    return callApi({
+      endpoint: '/login',
+      token: undefined,
+      options: { method: 'POST' },
+      payload: {
         username,
         password,
-      }),
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
       },
     })
-      .then(response => response.json())
-      .then((json) => {
-        if (json.success) {
-          return json;
-        }
-
-        throw new Error(json.message);
-      })
       .then((json) => {
         if (!json.token) {
           throw new Error('Token has not been provided!');
@@ -101,7 +82,6 @@ export function logout() {
 export function checkAuth() {
   return (dispatch, getState) => {
     const { token } = getState().auth;
-    console.log('checkAuth');
 
     if (!token) {
       return dispatch({
@@ -109,21 +89,10 @@ export function checkAuth() {
       });
     }
 
-    return fetch('http://localhost:8000/v1/users/me', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
+    return callApi({
+      endpoint: '/users/me',
+      token,
     })
-      .then(response => response.json())
-      .then((json) => {
-        if (json.success) {
-          return json;
-        }
-
-        throw new Error(json.message);
-      })
       .then((json) => {
         dispatch({
           type: actionTypes.VERIFY_AUTH_SUCCESS,
