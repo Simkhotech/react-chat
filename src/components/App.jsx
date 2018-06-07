@@ -11,6 +11,8 @@ import WelcomePage from '../containers/WelcomePage';
 import ChatPage from '../containers/ChatPage';
 import configureStore from '../store';
 
+import PrivateRoute from '../containers/PrivateRoute';
+
 const store = configureStore();
 
 const App = () => (
@@ -18,7 +20,7 @@ const App = () => (
     <Router>
       <Switch>
         <Route exact path="/" component={WelcomePage} />
-        <Route path="/chat" component={ChatPage} />
+        <PrivateRoute path="/chat" component={ChatPage} />
         <Redirect to="/" />
       </Switch>
     </Router>

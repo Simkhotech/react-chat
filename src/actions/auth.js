@@ -1,13 +1,9 @@
-import {
-  SIGNUP_REQUEST, SIGNUP_SUCCESS, SIGNUP_FAILURE,
-  LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE,
-  LOGOUT_REQUEST, // LOGOUT_SUCCESS, LOGOUT_FAILURE,
-} from '../constants';
+import * as actionTypes from '../constants';
 
 export function onSignup(username, password) {
   return (dispatch) => {
     dispatch({
-      type: SIGNUP_REQUEST,
+      type: actionTypes.SIGNUP_REQUEST,
     });
 
     return fetch('http://localhost:8000/v1/signup', {
@@ -38,12 +34,12 @@ export function onSignup(username, password) {
         localStorage.setItem('token', json.token);
 
         dispatch({
-          type: SIGNUP_SUCCESS,
+          type: actionTypes.SIGNUP_SUCCESS,
           payload: json,
         });
       })
       .catch(reason => dispatch({
-        type: SIGNUP_FAILURE,
+        type: actionTypes.SIGNUP_FAILURE,
         payload: reason,
       }));
   };
@@ -52,7 +48,7 @@ export function onSignup(username, password) {
 export function onLogin(username, password) {
   return (dispatch) => {
     dispatch({
-      type: LOGIN_REQUEST,
+      type: actionTypes.LOGIN_REQUEST,
     });
 
     return fetch('http://localhost:8000/v1/login', {
@@ -83,12 +79,12 @@ export function onLogin(username, password) {
         localStorage.setItem('token', json.token);
 
         dispatch({
-          type: LOGIN_SUCCESS,
+          type: actionTypes.LOGIN_SUCCESS,
           payload: json,
         });
       })
       .catch(reason => dispatch({
-        type: LOGIN_FAILURE,
+        type: actionTypes.LOGIN_FAILURE,
         payload: reason,
       }));
   };
@@ -97,7 +93,46 @@ export function onLogin(username, password) {
 export function logout() {
   return (dispatch) => {
     dispatch({
-      type: LOGOUT_REQUEST,
+      type: actionTypes.LOGOUT_REQUEST,
     });
+  };
+}
+
+export function checkAuth() {
+  return (dispatch, getState) => {
+    const { token } = getState().auth;
+    console.log('checkAuth');
+
+    if (!token) {
+      return dispatch({
+        type: actionTypes.VERIFY_AUTH_FAILURE,
+      });
+    }
+
+    return fetch('http://localhost:8000/v1/users/me', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(response => response.json())
+      .then((json) => {
+        if (json.success) {
+          return json;
+        }
+
+        throw new Error(json.message);
+      })
+      .then((json) => {
+        dispatch({
+          type: actionTypes.VERIFY_AUTH_SUCCESS,
+          payload: json,
+        });
+      })
+      .catch(reason => dispatch({
+        type: actionTypes.VERIFY_AUTH_FAILURE,
+        payload: reason,
+      }));
   };
 }
