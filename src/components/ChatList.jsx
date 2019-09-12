@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+
 import { withStyles } from 'material-ui';
 import List from 'material-ui/List';
 
-import ChatListItem from "./ChatListItem";
+import ChatListItem from './ChatListItem';
 
 const styles = theme => ({
   chatList: {
-    height: `calc(100% - 56px)`,
+    height: 'calc(100% - 56px)',
     overflowY: 'scroll',
   },
 });

@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+
 import { withStyles } from 'material-ui';
 
-import ChatMessageList from "./ChatMessageList";
-import MessageInput from "./MessageInput";
+import ChatMessageList from './ChatMessageList';
+import MessageInput from './MessageInput';
 
 const styles = theme => ({
   chatLayout: {
@@ -10,24 +11,26 @@ const styles = theme => ({
 
     height: '100%',
     overflow: 'hidden',
-    
+
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: 64,
 
-    width: `calc(100% - 320px)`,
+    width: 'calc(100% - 320px)',
     paddingLeft: 320,
-  }
+  },
 });
 
 class Chat extends React.Component {
   render() {
     const { classes, messages } = this.props;
 
-    return <main className={classes.chatLayout}>
+    return (
+      <main className={classes.chatLayout}>
         <ChatMessageList messages={messages} />
         <MessageInput />
-      </main>;
+      </main>
+    );
   }
 }
 

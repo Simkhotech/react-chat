@@ -1,16 +1,16 @@
-import React from "react";
-import { withStyles } from "material-ui/styles";
+import React from 'react';
 
-import Button from "material-ui/Button";
-import AddIcon from "@material-ui/icons/Add";
+import { withStyles } from 'material-ui/styles';
+import Button from 'material-ui/Button';
+import AddIcon from '@material-ui/icons/Add';
 
 const styles = theme => ({
   newChatButton: {
-    position: "absolute",
-    left: "auto",
+    position: 'absolute',
+    left: 'auto',
     right: theme.spacing.unit * 3,
     bottom: theme.spacing.unit * 3 + 48,
-  }
+  },
 });
 
 class NewChatButton extends React.Component {
@@ -18,7 +18,7 @@ class NewChatButton extends React.Component {
     const { classes } = this.props;
 
     return (
-      <Button variant="fab" color="primary" className={classes.newChatButton}>
+      <Button variant='fab' color='primary' className={classes.newChatButton}>
         <AddIcon />
       </Button>
     );

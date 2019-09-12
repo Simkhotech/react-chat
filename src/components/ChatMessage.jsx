@@ -1,10 +1,11 @@
-import React from 'react'
-import classnames from "classnames";
-import { withStyles } from 'material-ui';
-import Paper from "material-ui/Paper";
-import Typography from "material-ui/Typography";
+import React from 'react';
+import classnames from 'classnames';
 
-import AppAvatar from "./AppAvatar";
+import { withStyles } from 'material-ui';
+import Paper from 'material-ui/Paper';
+import Typography from 'material-ui/Typography';
+
+import AppAvatar from './AppAvatar';
 
 const styles = theme => ({
   messageWrapper: {
@@ -24,23 +25,25 @@ const styles = theme => ({
   },
   messageFromMe: {
     marginRight: theme.spacing.unit * 2,
-    backgroundColor: '#e6dcff'
+    backgroundColor: '#e6dcff',
   },
 });
 
 class ChatMessage extends React.Component { 
   render() {
     const { classes, message } = this.props;
-    const isMessageFromMe = message.sender === "me";
+    const isMessageFromMe = message.sender === 'me';
 
-    return <div className={classnames(classes.messageWrapper, isMessageFromMe && classes.messageWrappperFromMe)}>
-      {!isMessageFromMe && <AppAvatar text={message.sender} />}
+    return (
+      <div className={classnames(classes.messageWrapper, isMessageFromMe && classes.messageWrappperFromMe)}>
+        {!isMessageFromMe && <AppAvatar text={message.sender} />}
         <Paper className={classnames(classes.message, isMessageFromMe && classes.messageFromMe)}>
-          <Typography variant="caption">{message.sender}</Typography>
-          <Typography variant="body1">{message.content}</Typography>
+          <Typography variant='caption'>{message.sender}</Typography>
+          <Typography variant='body1'>{message.content}</Typography>
         </Paper>
-      {isMessageFromMe && <AppAvatar text={message.sender} />}
-      </div>;
+        {isMessageFromMe && <AppAvatar text={message.sender} />}
+      </div>
+    );
   }
 }
 

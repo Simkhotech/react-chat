@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+
 import { withStyles } from 'material-ui';
 
-import ChatMessage from "./ChatMessage";
+import ChatMessage from './ChatMessage';
 
 const styles = theme => ({
   messagesWrapper: {
@@ -18,10 +19,11 @@ class ChatMessageList extends React.Component {
     super(props);
     this.messagesWrapper = React.createRef();
   }
+
   componentDidMount() {
     this.scrollDownHistory();
   }
-  
+
   componentDidUpdate() {
     this.scrollDownHistory();
   }
@@ -39,9 +41,9 @@ class ChatMessageList extends React.Component {
     const { classes, messages } = this.props;
 
     return (
-      <div className={classes.messagesWrapper} ref={this.messagesWrapper}> 
+      <div className={classes.messagesWrapper} ref={this.messagesWrapper}>
         {messages && messages.map((message, index) => (
-          <ChatMessage key={index} message={message}/>
+          <ChatMessage key={`ChatMessage_${index}`} message={message} />
         ))}
       </div>
     );
